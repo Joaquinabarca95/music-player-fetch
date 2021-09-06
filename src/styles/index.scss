@@ -1,5 +1,68 @@
 @import "~bootstrap/scss/bootstrap.scss";
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100vh;
+}
+
+.container-fluid {
+    height: 100%;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+}
+
+.songs {
+    height: 100vh;
+}
+
+ul {
+    list-style: none;
+}
+li {
+    color: white;
+    cursor: pointer;
+    border-top: 0.5px solid rgb(51, 50, 50);
+    padding: 10px;
+    width: 100%;
+    margin: 0;
+}
+
+ul:last-child {
+    border-bottom: 0.5px solid rgb(51, 50, 50);
+}
+
+li:hover, li:active{
+    background-color: rgb(51, 50, 50);
+}
+
+.active {
+    background-color: rgb(51, 50, 50);
+}
+
+.buttonsNav {
+    position: fixed;
+    height: 80px;
+    width: 100%;
+    background-color: rgb(51, 50, 50);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+}
+
+.buttonsNav > button {
+    color:white; 
+}
+
+
 /* 
 
     You can write your own styles here...
