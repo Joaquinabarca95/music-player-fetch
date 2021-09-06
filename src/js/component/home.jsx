@@ -1,27 +1,30 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 //create your first component
+
 const Home = () => {
-	const [musica, setMusica] = useState([
-		{
-			id: 1,
-			category: "game",
-			name: "Mario Castle",
-			url: "files/mario/songs/castle.mp3"
-		},
-		{
-			id: 2,
-			category: "game",
-			name: "Mario Star",
-			url: "files/mario/songs/hurry-starman.mp3"
-		},
-		{
-			id: 3,
-			category: "game",
-			name: "Mario Overworld",
-			url: "files/mario/songs/overworld.mp3"
-		}
-	]);
+	const [musica, setMusica] = useState([]);
+
+	useEffect(() => {
+		getMusica();
+	}, []);
+
+	const getMusica = () => {
+		fetch("https://assets.breatheco.de/apis/sound/songs", {
+			method: "GET"
+		})
+			.then(response => {
+				// console.log(response);
+				return response.json();
+			})
+			.then(data => {
+				console.log(data);
+				setMusica(data);
+			})
+			.catch(error => {
+				console.log(error);
+			});
+	};
 
 	let audioRef = useRef();
 
@@ -35,11 +38,11 @@ const Home = () => {
 	const songs = musica.map((song, index) => {
 		return (
 			<li
-				key={song.id}
+				key={index}
 				className={
 					isPlaying == true && current === index ? "active" : ""
 				}>
-				{index} {song.name}
+				{index + 1} {song.name}
 			</li>
 		);
 	});

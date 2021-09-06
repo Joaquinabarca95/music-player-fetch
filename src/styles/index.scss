@@ -17,7 +17,8 @@ html, body {
 }
 
 .songs {
-    height: 100vh;
+    height: 90vh;
+    overflow-y: scroll;
 }
 
 ul {
@@ -30,6 +31,10 @@ li {
     padding: 10px;
     width: 100%;
     margin: 0;
+}
+
+ul:first-child{
+    border-top: none
 }
 
 ul:last-child {
@@ -46,7 +51,7 @@ li:hover, li:active{
 
 .buttonsNav {
     position: fixed;
-    height: 80px;
+    height: 10vh;
     width: 100%;
     background-color: rgb(51, 50, 50);
     display: flex;
